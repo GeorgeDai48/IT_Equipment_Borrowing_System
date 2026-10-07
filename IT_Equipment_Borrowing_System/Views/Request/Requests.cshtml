@@ -1,0 +1,46 @@
+﻿@using IT_Equipment_Borrowing_System.Models
+@model IEnumerable<Request>
+
+<h1>Requests</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Role</th>
+                <th>Equipment Type</th>
+                <th>Duration</th>
+                <th>Request Details</th>
+                <th>Approval</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.Name</td>
+                    <td>@r.Email</td>
+                    <td>@r.PhoneNumber</td>
+                    <td>@r.Role</td>
+                    <td>@r.EquipmentType</td>
+                    <td>@r.Duration</td>
+                    <td>@r.RequestDetails</td>
+                    <td>
+                        <label for="approval"></label>
+                        <select id="approval" name="approval">
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="accept">Accept</option>
+                            <option value="deny">Deny</option>
+                        </select>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>

@@ -40,5 +40,10 @@ namespace IT_Equipment_Borrowing_System.Controllers
 
             return View("RequestForm", request);
         }
+        [Route("Requests")]
+        public IActionResult adminPage()
+        {
+            return View("Requests", Repository.requests);
+        }
     }
 }
