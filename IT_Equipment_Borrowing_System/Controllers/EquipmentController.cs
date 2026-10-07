@@ -8,5 +8,6 @@ namespace IT_Equipment_Borrowing_System.Controllers
         {
             return View();
         }
+
     }
 }
