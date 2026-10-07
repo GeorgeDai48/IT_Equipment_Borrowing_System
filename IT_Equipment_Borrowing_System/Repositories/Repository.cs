@@ -18,12 +18,15 @@ namespace IT_Equipment_Borrowing_System.Repositories
         };
         //Requests List
         public static List<Request> requests = new List<Request>();
+        static int requestIdCounter = 0;
         public static void AddRequest(Request request)
         {
             var equipment = equipments.FirstOrDefault(b => b.Type == request.EquipmentType && b.IsAvailable);
             if (equipment != null)
             {
                 equipment.IsAvailable = false;
+                requestIdCounter++;
+                request.Id = requestIdCounter;
                 requests.Add(request);
             }
         }

@@ -26,7 +26,12 @@ namespace IT_Equipment_Borrowing_System.Controllers
                 ModelState.AddModelError("PhoneNumber", "You have already requested this equipment type.");
                 return View("RequestForm", request);
             }
-
+            Boolean isEquipmentAvailable = Repository.equipments.Any(e => e.Type == request.EquipmentType && e.IsAvailable);
+            if (!isEquipmentAvailable)
+            {
+                ModelState.AddModelError("EquipmentType", "This type of equipment is not available.");
+                return View("RequestForm", request);
+            }
             if (ModelState.IsValid)
             {
                 Repository.AddRequest(request);
