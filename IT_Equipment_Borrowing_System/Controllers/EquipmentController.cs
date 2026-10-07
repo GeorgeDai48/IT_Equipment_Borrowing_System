@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IT_Equipment_Borrowing_System.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IT_Equipment_Borrowing_System.Controllers
 {
     public class EquipmentController : Controller
     {
-        public IActionResult Index()
+        public IActionResult AllEquipment()
         {
-            return View();
+            var equipmentList = Repository.equipments;
+            return View(equipmentList);
         }
 
     }
