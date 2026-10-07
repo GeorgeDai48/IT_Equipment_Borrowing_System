@@ -27,7 +27,13 @@ namespace IT_Equipment_Borrowing_System.Controllers
                 return View("RequestForm", request);
             }
 
-            return View("RequestConfirmation", request);
+            if (ModelState.IsValid)
+            {
+                Repository.AddRequest(request);
+                return View("RequestConfirmation", request);
+            }
+
+            return View("RequestForm", request);
         }
     }
 }
