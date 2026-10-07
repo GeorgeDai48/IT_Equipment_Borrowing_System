@@ -1,7 +1,7 @@
 ﻿@using IT_Equipment_Borrowing_System.Models
 @model IEnumerable<Equipment>
 
-<h1>All Equipment</h1>
+<h1>All Available Equipment</h1>
 <div class="table-responsive">
     <table class="table table-striped table-hover table-bordered">
         <thead class="table-dark">
@@ -10,22 +10,19 @@
                 <th>Name</th>
                 <th>Type</th>
                 <th>Description</th>
-                <th>Availablility</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var e in Model)
-                {
+            {
                 <tr>
                     <td>@e.Id</td>
                     <td>@e.Name</td>
                     <td>@e.Type</td>
                     <td>@e.Description</td>
-                    @if (e.IsAvailable) { <td class="text-success">Available</td> }
-                        else { <td class="text-danger">Not Available</td> }
-                    
+
                 </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+            }
+        </tbody>
+    </table>
+</div>

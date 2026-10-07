@@ -11,5 +11,11 @@ namespace IT_Equipment_Borrowing_System.Controllers
             return View(equipmentList);
         }
 
+        public IActionResult AvailableEquipment()
+        {
+            var availableEquipmentList = Repository.equipments.Where(e => e.IsAvailable).ToList();
+            return View(availableEquipmentList);
+        }
+
     }
 }
