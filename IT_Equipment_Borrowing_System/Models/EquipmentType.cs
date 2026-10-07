@@ -2,10 +2,9 @@
 {
     public enum EquipmentType
     {
-        Handheld,
-        Computer,
-        Peripheral,
-        Networking,
-        Other
+        Laptop,
+        Phone,
+        Tablet,
+        Another
     }
 }
