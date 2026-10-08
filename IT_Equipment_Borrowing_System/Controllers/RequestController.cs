@@ -42,10 +42,16 @@ namespace IT_Equipment_Borrowing_System.Controllers
             {
                 Repository.AddRequest(request);
                 //Sends the user to a confirmation page with request details
-                return View("RequestConfirmation", request);
+                return RedirectToAction("RequestConfirmation", request);
             }
 
             return View("RequestForm", request);
+        }
+
+        [Route("RequestConfirmation")]
+        public IActionResult RequestConfirmation(Request request)
+        {
+            return View(request);
         }
 
         //Admin page to view requests
