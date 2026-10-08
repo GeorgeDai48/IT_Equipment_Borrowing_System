@@ -18,9 +18,11 @@ namespace IT_Equipment_Borrowing_System.Repositories
         };
         //Requests List
         public static List<Request> requests = new List<Request>();
+        //Counter for generating unique request IDs
         static int requestIdCounter = 0;
         public static void AddRequest(Request request)
         {
+            //Finds the first available equipment of requested type and marks it as unavailable, then adds it to the requests list with a unique ID
             var equipment = equipments.FirstOrDefault(b => b.Type == request.EquipmentType && b.IsAvailable);
             if (equipment != null)
             {
